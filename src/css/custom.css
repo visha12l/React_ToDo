@@ -1,0 +1,263 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.hide{
+  display: none;
+}
+.show {
+  display: block;
+}
+input[placeholder]:focus::-webkit-input-placeholder,textarea[placeholder]:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.ChildElement {
+  padding-top: 100px;
+}
+.showCursor {
+  cursor: pointer;
+}
+.text-center {
+  text-align: center;
+}
+textarea {
+  resize: none;
+}
+/*button styling*/
+.btn {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #0066FF;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.blueButton {
+  background-color: #0066FF;
+  color: #FFF;
+  border: 2px solid #003399;
+}
+.redButton {
+  color: red;
+  background-color: #fff;
+  border: 2px solid #000;
+}
+.blueButton:hover {
+  background-color: #003399;
+  color: #fff;
+}
+.redButton:hover {
+  background-color: white;
+}
+/*navigation dots css*/
+.navigationDotsWrap {
+  list-style-type: none;
+  text-align: center;
+  margin-bottom: 35px;
+  padding: 0;
+}
+.navigationDotsWrap  li {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 1px solid lightGrey;
+  position: relative;
+  margin-left: 55px;
+	background-color: white;
+}
+.navigationDotsWrap li:first-child {
+  margin-left: 0
+}
+.navigationDotsWrap li:first-child::before {
+  display: none;
+}
+.navigationDotsWrap li::before {
+  content: '';
+  height: 1px;
+  width: 55px;
+  position: absolute;
+  top: 50%;
+  left: -56px;
+  display: inline-block;
+  background: lightGrey;
+}
+.navigationDotsWrap li.activeTab {
+	background: #4a669e;
+	border-color: #4a669e;
+}
+
+header {
+  font-size: 32px;
+  line-height: 48px;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+}
+.headerContent {
+  border: 4px solid #000;
+  padding: 10px 40px;
+}
+.listDataView {
+  padding: 100px 40px 0;
+}
+.dataListingTable {
+  margin: 0;
+  padding: 0;
+  width: 70%;
+  list-style-type: none;
+  display: table;
+}
+.dataListingTable > li {
+  display: table-row;
+}
+
+.dataListingTable  &:first-child .tableCell {
+  border-top: 1px solid #000;
+}
+.dataListingTable  .tableCell {
+  display: table-cell;
+  width: 20%;
+  padding: 5px;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.dataListingTable  .tableCell:first-child {
+  border-left: 1px solid #000;
+}
+
+.dataListingTable  .tableHead {
+    background-color: #909090;
+}
+.dataListingTable  .tableBody:nth-child(odd) {
+    background-color: #e2e2e2;
+}
+.filterListing {
+  width: 28%;
+  border: 1px solid #000;
+  text-align: center;
+  padding: 20px 0;
+}
+.filterListing  input  {
+    margin-right: 10px;
+    line-height: 30px;
+    height: 30px;
+  }
+.filterListing  button {
+    padding: 6px 20px;
+  }
+.filterListing  .addFilterButton {
+    margin-bottom: 20px;
+}
+.filterListing  .addFilterWrap select {
+      display: block;
+      margin: 0 auto 10px;
+      width: 200px;
+      line-height: 30px;
+      height: 30px;
+}
+.filtersList {
+  margin: 0;
+  padding: 0 30px 20px;
+  list-style-type: none;
+  text-align: left;
+}
+.filtersList  li {
+    padding: 10px 0;
+    border-bottom: 2px solid #000;
+  }
+.filtersList  li span {
+      line-height: 30px;
+}
+.notAccessibleBlock {
+      font-size: 40px;;
+      line-height: 60px;
+      color: #ff3737;
+      text-align: center;
+      padding: 100px 40px;
+      font-weight: bold;
+}
+.floatLeft {
+  float: left;
+}
+.floatRight {
+  float: right;
+
+}
+.clearFloat::after {
+  content: '';
+  display: block;
+  float: none;
+  clear: both;
+}
+.todoList  {
+  list-style: none;
+  padding-left: 0;
+  width: 255px;
+}
+.stickyLeftlist {
+  position: absolute;
+  left: 0;
+  top: 76px;
+  z-index: 999;
+  background-color: #4a669e;
+  padding: 20px 0;
+}
+.stickyLeftlist li a{
+  color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  display: block;
+  cursor: pointer;
+}
+/*curreny converter app*/
+.currencyCalculationWrap {
+	margin-top: 120px;
+}
+.exchangeRateWrap {
+	margin-top: 60px;
+}
+.mainAppWrap {
+	width: 500px;
+	margin: 0 auto;
+}
