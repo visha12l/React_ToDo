@@ -4,11 +4,17 @@ var underscore = require('underscore');
 export default class TodoSearch extends React.Component {
     constructor(props) {
        super();
+       this.state = {
+           searchStatus: ''  
+       };
        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleInputChange(event) {
         event.preventDefault();
+        this.setState({
+            searchStatus: true
+        })
         this.props.searchItem(this.refs.searchText.value);
     }
 
@@ -35,9 +41,7 @@ export default class TodoSearch extends React.Component {
                         onChange={this.handleInputChange}
                     />
                 </div>
-                 <div>
-                      {this.getSearchList()}
-                  </div>
+                {this.state.searchStatus && this.getSearchList()}
             </div>
         );
   }
