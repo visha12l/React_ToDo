@@ -1,33 +1,35 @@
 .todoListForm {
-  padding: 50px;
-  background-color: #66CCFF;
-  font-family: sans-serif;
-  width: 900px;
-  margin: 0 auto;
+     padding: 50px;
+     background-color: #66CCFF;
+     font-family: sans-serif;
+     width: 900px;
+     margin: 0 auto;
 }
-.todoListForm input {
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #000;
+ .todoListForm h3 {
+     margin-bottom: 40px;
 }
-.todoList  {
-  list-style: none;
-  padding-left: 0;
-  width: 255px;
+ .todoListForm input {
+     padding: 10px;
+     font-size: 16px;
+     border: 2px solid #000;
 }
-
-.todoList li {
-  color: #333;
-  background-color: rgba(255,255,255,.5);
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 5px;
+ .todoList {
+     list-style: none;
+     padding-left: 0;
+     width: 255px;
 }
-.userData {
-  position: relative;
+ .todoList li {
+     color: #333;
+     background-color: rgba(255,255,255,.5);
+     padding: 15px;
+     margin-bottom: 15px;
+     border-radius: 5px;
 }
-.floatingLabel {
-  position: absolute;
-  top: -24px;
-  left: 12px;
+ .userData {
+     position: relative;
+}
+ .floatingLabel {
+     position: absolute;
+     top: -24px;
+     left: 12px;
 }

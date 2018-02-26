@@ -15,9 +15,9 @@ export default class TodoList extends React.Component {
         this.searchItem = this.searchItem.bind(this);
         this.state = {
             oldList: [],
-            addbuttonStatus: false,
             searchList: [],
-            requserrorMsg: false,
+            addbuttonStatus: false,
+            requestErrorMsg: false
         };
     }
 
@@ -29,7 +29,7 @@ export default class TodoList extends React.Component {
         this.validateForm(refName);
     }
 
-    validateForm(refName) { //validation function
+    validateForm(refName) {
         var inputValue = this.refs[refName].value;;
         if(/[^a-zA-Z0-9\-\/]/.test(inputValue)) {
             alert("you cannot add special characters to note");
@@ -43,33 +43,30 @@ export default class TodoList extends React.Component {
         let noteText = this.refs.input.value.toLowerCase() // user input value
         let duplicateEntry = underscore.contains(underscore.pluck(this.state.oldList, 'userInput') , noteText); //check for duplicate value
         if(noteText && !duplicateEntry) {
-            var joined = this.state.oldList.concat({userInput:noteText});
             this.setState({
-                oldList: joined,
-                requserrorMsg: false,
+                oldList: [...this.state.oldList, {userInput:noteText}],
+                requestErrorMsg: false,
             });
         } else {
             this.setState({
-                requserrorMsg: true,
+                requestErrorMsg: true,
             });
         }
           this.refs.input.value="";
     }
 
-    deleteItem(deleteItemId) { //delete item id
-        let result = this.state.oldList;
-        result.splice(deleteItemId, 1); //remove id from array
+    deleteItem(deleteItemId) {
         this.setState({
-            oldList: result, //re render the Component
+            oldList: underscore.filter(this.state.oldList, (name, key) => deleteItemId !== key )
         });
     }
 
     handleInputFocus(refName) {
-        this.refs[refName].classList.remove("hide"); //show floating label on input focus
+        this.refs[refName].classList.remove("hide");
     }
 
     handleInputBlur(refName) {
-        this.refs[refName].classList.add("hide"); // hide floating label on input blur
+        this.refs[refName].classList.add("hide");
     }
 
     searchItem(value) {
@@ -84,7 +81,7 @@ export default class TodoList extends React.Component {
     }
 
     render() {
-        let oldList = this.state.oldList;
+        let { oldList } = this.state;
         return (
             <div className="container">
                 <form className="todoListForm" onSubmit={this.addItem}>
@@ -109,11 +106,10 @@ export default class TodoList extends React.Component {
                             </div>
                             <TodoItem listData={oldList} deleteItem={this.deleteItem}/>
                         </div>
-                        {this.state.oldList.length
-                            ? <div className="floatRight">
-                                  <TodoSearch searchItem={this.searchItem} searchList={this.state.searchList}/>
-                              </div>
-                            : null
+                        {oldList &&
+                            <div className="floatRight">
+                                <TodoSearch searchItem={this.searchItem} searchList={this.state.searchList}/>
+                            </div>
                         }
                     </div>
                 </form>
